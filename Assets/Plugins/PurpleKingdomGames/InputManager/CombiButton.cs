@@ -85,6 +85,10 @@ namespace PurpleKingdomGames.Unity.InputManager
                     break;
                 }
 
+                if (!_buttons[i].IsHeld()) {
+                    return 0;
+                }
+
                 float value = Mathf.Abs(_buttons[i].GetCurrentValue());
                 if (value > max) {
                     max = value;
@@ -108,6 +112,10 @@ namespace PurpleKingdomGames.Unity.InputManager
             for (int i = 0; i < _buttons.Length; i++) {
                 if (_buttons[i] == null) {
                     break;
+                }
+
+                if (!_buttons[i].IsHeld()) {
+                    return 0;
                 }
 
                 float value = Mathf.Abs(_buttons[i].GetCurrentRawValue());
