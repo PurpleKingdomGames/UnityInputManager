@@ -1,46 +1,49 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
-public class MouseButton : IButton
+namespace PurpleKingdomGames.Unity.InputManager
 {
-    [SerializeField]
-    public bool Invert { get; set; }
-
-    [SerializeField]
-    public string Name { get; protected set; }
-
-    [SerializeField]
-    public readonly int ButtonNumber;
-
-    public MouseButton(int buttonNumber)
+    [Serializable]
+    public class MouseButton : IButton
     {
-        ButtonNumber = buttonNumber;
-        Name = "Mouse Button " + buttonNumber;
-    }
+        [SerializeField]
+        public bool Invert { get; set; }
 
-    public float GetCurrentValue()
-    {
-        return IsHeld() ? Invert ? -1 : 1 : 0;
-    }
+        [SerializeField]
+        public string Name { get; protected set; }
 
-    public float GetCurrentRawValue()
-    {
-        return GetCurrentValue();
-    }
+        [SerializeField]
+        public readonly int ButtonNumber;
 
-    public bool IsDown()
-    {
-        return Input.GetMouseButtonDown(ButtonNumber);
-    }
+        public MouseButton(int buttonNumber)
+        {
+            ButtonNumber = buttonNumber;
+            Name = "Mouse Button " + buttonNumber;
+        }
 
-    public bool IsUp()
-    {
-        return Input.GetMouseButtonUp(ButtonNumber);
-    }
+        public float GetCurrentValue()
+        {
+            return IsHeld() ? Invert ? -1 : 1 : 0;
+        }
 
-    public bool IsHeld()
-    {
-        return Input.GetMouseButton(ButtonNumber);
+        public float GetCurrentRawValue()
+        {
+            return GetCurrentValue();
+        }
+
+        public bool IsDown()
+        {
+            return Input.GetMouseButtonDown(ButtonNumber);
+        }
+
+        public bool IsUp()
+        {
+            return Input.GetMouseButtonUp(ButtonNumber);
+        }
+
+        public bool IsHeld()
+        {
+            return Input.GetMouseButton(ButtonNumber);
+        }
     }
 }
