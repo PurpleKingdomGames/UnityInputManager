@@ -7,7 +7,6 @@ namespace PurpleKingdomGames.Unity.InputManager
     public class InputModule : StandaloneInputModule
     {
         public bool HandleMouseEvents = true;
-        public string SubmitKey = "Submit";
 
         private Vector3 _prevMousePosition;
         private float _nextDownTick;
@@ -91,7 +90,7 @@ namespace PurpleKingdomGames.Unity.InputManager
                 eventSystem.SetSelectedGameObject(nextItem.gameObject);
             }
 
-            if (!string.IsNullOrEmpty(SubmitKey) && InputManager.IsDown(SubmitKey)) {
+            if (!string.IsNullOrEmpty(submitButton) && InputManager.IsDown(submitButton)) {
                 ExecuteEvents.ExecuteHierarchy(
                     eventSystem.currentSelectedGameObject,
                     GetBaseEventData(),
