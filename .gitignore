@@ -1,0 +1,84 @@
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Library/
+UnityVs/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+obj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+UnityVS.meta
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+
+#play
+logs
+project/project
+project/target
+target
+tmp
+dist
+.cache
+
+# IDE project files
+
+.cache
+.classpath
+.externalToolBuilders
+.history
+.idea/
+.idea_modules/
+.metadata
+.project
+.settings/
+.target
+*.iml
+*.ipr
+*.iws
+atlassian-ide-plugin.xml
+
+# publish artifacts
+target/
+docs/
+build/
+log.txt
+*.log
+*.bin
+
+# operating system files and temporary files
+
+.DS_Store
+*.lock
+*.swp
+*.tmproj
+*~
+#Icon?
+Thumbs.db
+*.tmp
+
+# Maya
+workspace.mel
+
+.vagrant/
