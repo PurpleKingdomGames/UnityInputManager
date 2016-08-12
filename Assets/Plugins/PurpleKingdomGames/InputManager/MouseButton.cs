@@ -2,13 +2,13 @@
 using UnityEngine;
 
 [Serializable]
-public sealed class MouseButton : IButton
+public class MouseButton : IButton
 {
     [SerializeField]
     public bool Invert { get; set; }
 
     [SerializeField]
-    public string Name { get; private set; }
+    public string Name { get; protected set; }
 
     [SerializeField]
     public readonly int ButtonNumber;

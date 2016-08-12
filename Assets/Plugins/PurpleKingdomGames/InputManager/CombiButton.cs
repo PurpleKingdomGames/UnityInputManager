@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 [Serializable]
-public sealed class CombiButton : IButton, IEnumerable
+public class CombiButton : IButton, IEnumerable
 {
     public IButton this[int index]
     {
@@ -17,7 +17,7 @@ public sealed class CombiButton : IButton, IEnumerable
     public bool Invert { get; set; }
 
     [SerializeField]
-    public string Name { get; private set; }
+    public string Name { get; protected set; }
 
     public int MaxLength { get { return _buttons.Length; } }
     public int Length { get { return _length; } }
