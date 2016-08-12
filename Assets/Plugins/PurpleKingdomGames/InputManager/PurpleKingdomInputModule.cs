@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public sealed class PurpleKingdomInputModule : StandaloneInputModule
+public class PurpleKingdomInputModule : StandaloneInputModule
 {
     public bool HandleMouseEvents = true;
     public string SubmitKey = "Submit";

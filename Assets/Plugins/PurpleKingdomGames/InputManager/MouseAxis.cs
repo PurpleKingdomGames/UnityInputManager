@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-public sealed class MouseAxis : IButton
+public class MouseAxis : IButton
 {
     public enum DirectionType
     {
@@ -13,7 +13,7 @@ public sealed class MouseAxis : IButton
     public bool Invert { get; set; }
 
     [SerializeField]
-    public string Name { get; private set; }
+    public string Name { get; protected set; }
 
     [SerializeField]
     public readonly DirectionType Direction;

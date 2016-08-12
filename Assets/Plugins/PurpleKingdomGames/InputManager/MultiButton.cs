@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 [Serializable]
-public sealed class MultiButton : IButton, IEnumerable
+public class MultiButton : IButton, IEnumerable
 {
     public IButton this[int index]
     {
