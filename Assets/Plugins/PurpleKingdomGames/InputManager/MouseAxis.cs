@@ -1,62 +1,65 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
-public class MouseAxis : IButton
+namespace PurpleKingdomGames.Unity.InputManager
 {
-    public enum DirectionType
+    [Serializable]
+    public class MouseAxis : IButton
     {
-        X, Y
-    }
-
-    [SerializeField]
-    public bool Invert { get; set; }
-
-    [SerializeField]
-    public string Name { get; protected set; }
-
-    [SerializeField]
-    public readonly DirectionType Direction;
-
-    [SerializeField]
-    private string _virtualKeyName;
-
-    public MouseAxis(DirectionType direction)
-    {
-        Direction = direction;
-        Name = _virtualKeyName = "Mouse Axis " + Direction.ToString();
-    }
-
-    public float GetCurrentValue()
-    {
-        if (Invert) {
-            return -Input.GetAxis(_virtualKeyName);
-        } else {
-            return Input.GetAxis(_virtualKeyName);
+        public enum DirectionType
+        {
+            X, Y
         }
-    }
 
-    public float GetCurrentRawValue()
-    {
-        if (Invert) {
-            return -Input.GetAxisRaw(_virtualKeyName);
-        } else {
-            return Input.GetAxisRaw(_virtualKeyName);
+        [SerializeField]
+        public bool Invert { get; set; }
+
+        [SerializeField]
+        public string Name { get; protected set; }
+
+        [SerializeField]
+        public readonly DirectionType Direction;
+
+        [SerializeField]
+        private string _virtualKeyName;
+
+        public MouseAxis(DirectionType direction)
+        {
+            Direction = direction;
+            Name = _virtualKeyName = "Mouse Axis " + Direction.ToString();
         }
-    }
 
-    public bool IsDown()
-    {
-        return GetCurrentRawValue() == 0;
-    }
+        public float GetCurrentValue()
+        {
+            if (Invert) {
+                return -Input.GetAxis(_virtualKeyName);
+            } else {
+                return Input.GetAxis(_virtualKeyName);
+            }
+        }
 
-    public bool IsUp()
-    {
-        return GetCurrentRawValue() != 0;
-    }
+        public float GetCurrentRawValue()
+        {
+            if (Invert) {
+                return -Input.GetAxisRaw(_virtualKeyName);
+            } else {
+                return Input.GetAxisRaw(_virtualKeyName);
+            }
+        }
 
-    public bool IsHeld()
-    {
-        return IsDown();
+        public bool IsDown()
+        {
+            return GetCurrentRawValue() == 0;
+        }
+
+        public bool IsUp()
+        {
+            return GetCurrentRawValue() != 0;
+        }
+
+        public bool IsHeld()
+        {
+            return IsDown();
+        }
     }
 }

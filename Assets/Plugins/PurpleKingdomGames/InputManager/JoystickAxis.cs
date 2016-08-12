@@ -1,65 +1,68 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
-internal class JoystickAxis : IButton
+namespace PurpleKingdomGames.Unity.InputManager
 {
-    [SerializeField]
-    public bool Invert { get; set; }
-
-    [SerializeField]
-    public string Name { get; protected set; }
-
-    [SerializeField]
-    public readonly int JoystickNumber;
-
-    [SerializeField]
-    public readonly int AxisNumber;
-
-    [SerializeField]
-    private string _virtualKeyName;
-
-    public JoystickAxis(int joystickNumber, int axisNumber)
+    [Serializable]
+    internal class JoystickAxis : IButton
     {
-        JoystickNumber = joystickNumber;
-        AxisNumber = axisNumber;
+        [SerializeField]
+        public bool Invert { get; set; }
 
-        _virtualKeyName = "Joystick " + JoystickNumber + " Axis " + AxisNumber;
+        [SerializeField]
+        public string Name { get; protected set; }
 
-        // TODO: Change the name depending on the type of joystick (i.e. display 'Left thumb stick' for an Xbox controller)
-        Name = _virtualKeyName;
-    }
+        [SerializeField]
+        public readonly int JoystickNumber;
 
-    public float GetCurrentValue()
-    {
-        if (Invert) {
-            return -Input.GetAxis(_virtualKeyName);
-        } else {
-            return Input.GetAxis(_virtualKeyName);
+        [SerializeField]
+        public readonly int AxisNumber;
+
+        [SerializeField]
+        private string _virtualKeyName;
+
+        public JoystickAxis(int joystickNumber, int axisNumber)
+        {
+            JoystickNumber = joystickNumber;
+            AxisNumber = axisNumber;
+
+            _virtualKeyName = "Joystick " + JoystickNumber + " Axis " + AxisNumber;
+
+            // TODO: Change the name depending on the type of joystick (i.e. display 'Left thumb stick' for an Xbox controller)
+            Name = _virtualKeyName;
         }
-    }
 
-    public float GetCurrentRawValue()
-    {
-        if (Invert) {
-            return -Input.GetAxisRaw(_virtualKeyName);
-        } else {
-            return Input.GetAxisRaw(_virtualKeyName);
+        public float GetCurrentValue()
+        {
+            if (Invert) {
+                return -Input.GetAxis(_virtualKeyName);
+            } else {
+                return Input.GetAxis(_virtualKeyName);
+            }
         }
-    }
 
-    public bool IsDown()
-    {
-        return GetCurrentRawValue() == 0;
-    }
+        public float GetCurrentRawValue()
+        {
+            if (Invert) {
+                return -Input.GetAxisRaw(_virtualKeyName);
+            } else {
+                return Input.GetAxisRaw(_virtualKeyName);
+            }
+        }
 
-    public bool IsUp()
-    {
-        return GetCurrentRawValue() != 0;
-    }
+        public bool IsDown()
+        {
+            return GetCurrentRawValue() == 0;
+        }
 
-    public bool IsHeld()
-    {
-        return IsDown();
+        public bool IsUp()
+        {
+            return GetCurrentRawValue() != 0;
+        }
+
+        public bool IsHeld()
+        {
+            return IsDown();
+        }
     }
 }

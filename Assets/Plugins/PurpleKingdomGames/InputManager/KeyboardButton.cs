@@ -1,46 +1,49 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
-public class KeyboardButton : IButton
+namespace PurpleKingdomGames.Unity.InputManager
 {
-    [SerializeField]
-    public bool Invert { get; set; }
-
-    [SerializeField]
-    public string Name { get; protected set; }
-
-    [SerializeField]
-    public readonly KeyCode Key;
-
-    public KeyboardButton(KeyCode key)
+    [Serializable]
+    public class KeyboardButton : IButton
     {
-        Key = key;
-        Name = key.ToString();
-    }
+        [SerializeField]
+        public bool Invert { get; set; }
 
-    public float GetCurrentValue()
-    {
-        return IsHeld() ? Invert ? -1 : 1 : 0;
-    }
+        [SerializeField]
+        public string Name { get; protected set; }
 
-    public float GetCurrentRawValue()
-    {
-        return GetCurrentValue();
-    }
+        [SerializeField]
+        public readonly KeyCode Key;
 
-    public bool IsDown()
-    {
-        return Input.GetKeyDown(Key);
-    }
+        public KeyboardButton(KeyCode key)
+        {
+            Key = key;
+            Name = key.ToString();
+        }
 
-    public bool IsUp()
-    {
-        return Input.GetKeyUp(Key);
-    }
+        public float GetCurrentValue()
+        {
+            return IsHeld() ? Invert ? -1 : 1 : 0;
+        }
 
-    public bool IsHeld()
-    {
-        return Input.GetKey(Key);
+        public float GetCurrentRawValue()
+        {
+            return GetCurrentValue();
+        }
+
+        public bool IsDown()
+        {
+            return Input.GetKeyDown(Key);
+        }
+
+        public bool IsUp()
+        {
+            return Input.GetKeyUp(Key);
+        }
+
+        public bool IsHeld()
+        {
+            return Input.GetKey(Key);
+        }
     }
 }

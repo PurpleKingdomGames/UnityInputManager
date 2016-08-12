@@ -1,15 +1,18 @@
-﻿public interface IButton
+﻿namespace PurpleKingdomGames.Unity.InputManager
 {
-    bool Invert { get; set; }
-    string Name { get; }
+    public interface IButton
+    {
+        bool Invert { get; set; }
+        string Name { get; }
 
-    float GetCurrentValue();
+        float GetCurrentValue();
 
-    float GetCurrentRawValue();
+        float GetCurrentRawValue();
 
-    bool IsDown();
+        bool IsDown();
 
-    bool IsUp();
+        bool IsUp();
 
-    bool IsHeld();
+        bool IsHeld();
+    }
 }
