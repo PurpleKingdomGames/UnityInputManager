@@ -1,4 +1,4 @@
-# UnityInputManager
+# Unity Input Manager
 
 The Unity Input Manager facilitates runtime configuration of input for Unity.
 As Unity is unable to edit which keys map to what input at runtime a developer can't
