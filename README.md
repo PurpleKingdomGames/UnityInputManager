@@ -61,7 +61,7 @@ InputManager.SetMap("Vertical", new JoystickAxis(1, 1));
 InputManager.SetMap("Jump", new MouseButton(0));
 ```
 
-You can also mix and match different inputs when combined with the [`MultiButton`](#MultiButton) object. The below 
+You can also mix and match different inputs when combined with the [`MultiButton`](#multibutton) object. The below 
 configuration combines the two previous ones to allow the player to move left or right using the Joystick or the Left and
 Right arrows. They may also move up or down with the joystick or the arrows, and can jump using either space bar
 or a left mouse click:
@@ -194,7 +194,7 @@ This represents the direction that the button is currently assigned to
 
 ###JoystickAxis
 
-A joystick axis is any movement on a specified Joystick axis (as defined in the custom [input config](#Installation)).
+A joystick axis is any movement on a specified Joystick axis (as defined in the custom [input config](#installation)).
 The constructor takes 2 arguments, an `int` that represents the joystick number (between 1 and 11) and another
 `int` representing the axis number (between 1 and 28)
 
