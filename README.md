@@ -10,16 +10,31 @@ hinder the developer.
 
 ##Installation
 
+Installing the Input manager is a simple two step process:
+
+* Copy the files found in Assets to your Unity Project (or import the package)
+* Go to Tools > Purple Kingdom Games > Create Input File
+
+Your input settings should now have about 310 entries for Mouse Axis and all Joystick Axis, and your old input file
+will be backed up. If this isn't the case, restart Unity and you should see the change.
+
+##Removal
+
+If you need to remove the plugin for whatever reason, simply do the following:
+
+* Go to Tools > Purple Kingdom Games > Restore Input File (this will only be available if there is a backup file)
+* Remove all files under Assets/Plugins/PurpleKingdomGames/InputManager
+
 ##Setting Up
 
-Before any queries can be asked of the Input Manager, it first needs to be given a config. As the Input Manager is static you
-will only need to do this once each time your game is started.
+Before any queries can be asked of the Input Manager, it first needs to be given a config. As the Input Manager is static
+you will only need to do this once each time your game is started.
 
-It's worth noting that all of the provided buttons are serializable, and therefore can be saved to a file for later retrieval
-if a developer wished to.
+It's worth noting that all of the provided buttons are serializable, and therefore can be saved to a file for later 
+retrieval if a developer wished to.
 
-The below example creates a Keyboard layout where the left and the right arrows act as horizontal axis, the up and down arrows
-act as vertical axis, and space bar jumps:
+The below example creates a Keyboard layout where the left and the right arrows act as horizontal axis, the up and down 
+arrows act as vertical axis, and space bar jumps:
 
 ```c#
 // using PurpleKingdomGames.Unity.InputManager
@@ -46,8 +61,8 @@ InputManager.SetMap("Vertical", new JoystickAxis(1, 1));
 InputManager.SetMap("Jump", new MouseButton(0));
 ```
 
-You can also mix and match different inputs when combined with the [`MultiButton`](#MultiButton) object. The below configuration
-combines the two previous ones to allow the player to move left or right using the Joystick or the Left and
+You can also mix and match different inputs when combined with the [`MultiButton`](#MultiButton) object. The below 
+configuration combines the two previous ones to allow the player to move left or right using the Joystick or the Left and
 Right arrows. They may also move up or down with the joystick or the arrows, and can jump using either space bar
 or a left mouse click:
 
@@ -104,8 +119,8 @@ for UI menus will no longer operate as expected. We've included a new Input Modu
 in the same way, but uses the Purple Kingdom Input Manager.
 
 To create a new Event system that has this Module attached, either right click on the heirarchy window or click 'GameObject'
-in the top menu. From there select `UI > Purple Kingdom Event System`. This will create an new Game Object with an event system
-and a Purple Kingdom Input Module.
+in the top menu. From there select `UI > Purple Kingdom Event System`. This will create an new Game Object with an event 
+system and a Purple Kingdom Input Module.
 
 ##Types
 
@@ -158,8 +173,8 @@ Returns `true` if a button is pressed down. In the case of Axis, this will be `t
 
 ###KeyboardButton
 
-A keyboard button represents any key on the keyboard that has a [KeyCode](http://docs.unity3d.com/ScriptReference/KeyCode.html).
-The contrustor takes a single `KeyCode` argument.
+A keyboard button represents any key on the keyboard that has a 
+[KeyCode](http://docs.unity3d.com/ScriptReference/KeyCode.html). The contrustor takes a single `KeyCode` argument.
 
 ###MouseButton
 
