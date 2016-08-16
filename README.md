@@ -211,7 +211,7 @@ This is the number of the axis that the button is assigned to
 ###MultiButton
 
 A multi-button can be used to group inputs together. For example, if you want your horizontal axis to take values from
-the Joystick or Keyboard then you can [use a multi-button to achieve that] (#Usage)
+the Joystick or Keyboard then you can [use a multi-button to achieve that] (#usage)
 
 As well as the usual interface methods and properties, this object also exposes the following:
 
