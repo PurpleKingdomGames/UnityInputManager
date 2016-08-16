@@ -5,7 +5,7 @@ using System.IO;
 
 namespace PurpleKingdomGames.Unity.InputManager
 {
-    public static class InputModuleEditor
+    public static class InputManagerEditor
     {
 		private static string _inputPath = Application.dataPath + "/../ProjectSettings";
 		private static string _inputFile = "InputManager.asset";
