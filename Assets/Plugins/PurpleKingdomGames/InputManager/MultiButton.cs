@@ -35,7 +35,8 @@ namespace PurpleKingdomGames.Unity.InputManager
             if (getIndex(button) == -1) {
                 for (int i = 0; i < _buttons.Length; i++) {
                     if (_buttons[i] == null) {
-                        _buttons[i] = button;
+						_buttons[i] = button;
+						generateName();
                         _length++;
 
                         return;
@@ -54,7 +55,8 @@ namespace PurpleKingdomGames.Unity.InputManager
             }
 
             _buttons[i] = null;
-            _length--;
+			_length--;
+			generateName();
 
             for (; i < _buttons.Length; i++) {
                 if (_buttons[i] == null && i < _buttons.Length - 2) {
@@ -173,5 +175,21 @@ namespace PurpleKingdomGames.Unity.InputManager
 
             return -1;
         }
+
+		private void generateName()
+		{
+			Name = "";
+			for (int i = 0; i < _buttons.Length; i++) {
+				if (_buttons[i] == null) {
+					return;
+				}
+
+				if (i != 0) {
+					Name += " or ";
+				}
+
+				Name += _buttons[i].Name;
+			}
+		}
     }
 }
