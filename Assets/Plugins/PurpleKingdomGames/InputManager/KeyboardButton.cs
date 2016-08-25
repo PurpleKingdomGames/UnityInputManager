@@ -17,8 +17,16 @@ namespace PurpleKingdomGames.Unity.InputManager
 
         public KeyboardButton(KeyCode key)
         {
-            Key = key;
-            Name = key.ToString();
+			Key = key;
+			Name = "";
+
+			foreach (char letter in key.ToString()) {
+				if (Char.IsUpper (letter) && Name.Length > 0) {
+					Name += " " + letter;
+				} else {
+					Name += letter;
+				}
+			}
         }
 
         public float GetCurrentValue()
