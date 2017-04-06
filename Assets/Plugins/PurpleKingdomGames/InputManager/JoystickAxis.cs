@@ -4,7 +4,7 @@ using UnityEngine;
 namespace PurpleKingdomGames.Unity.InputManager
 {
     [Serializable]
-    internal class JoystickAxis : IButton
+    public class JoystickAxis : IButton
     {
         [SerializeField]
         public bool Invert { get; set; }
