@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -8,9 +8,7 @@ namespace PurpleKingdomGames.Unity.InputManager
     {
         public bool HandleMouseEvents = true;
 
-        private Vector3 _prevMousePosition;
         private float _nextDownTick;
-        private bool _isDragging;
 
         public override void Process()
         {
@@ -49,40 +47,40 @@ namespace PurpleKingdomGames.Unity.InputManager
             Slider currentSlider = currentItem.GetComponent<Slider>();
 
             if (InputManager.GetCurrentValue(verticalAxis) < 0) {
-                if (InputManager.IsDown(verticalAxis) || (InputManager.IsHeld(verticalAxis) && _nextDownTick <= Time.time)) {
+                if ((InputManager.IsDown(verticalAxis) || InputManager.IsHeld(verticalAxis)) && _nextDownTick <= Time.unscaledTime) {
                     nextItem = currentItem.FindSelectableOnDown();
-                    _nextDownTick = Time.time + repeatDelay;
+                    _nextDownTick = Time.unscaledTime + repeatDelay;
                 }
             }
 
             if (InputManager.GetCurrentValue(verticalAxis) > 0) {
-                if (InputManager.IsDown(verticalAxis) || (InputManager.IsHeld(verticalAxis) && _nextDownTick <= Time.time)) {
+                if ((InputManager.IsDown(verticalAxis) || InputManager.IsHeld(verticalAxis)) && _nextDownTick <= Time.unscaledTime) {
                     nextItem = currentItem.FindSelectableOnUp();
-                    _nextDownTick = Time.time + repeatDelay;
+                    _nextDownTick = Time.unscaledTime + repeatDelay;
                 }
             }
 
             if (InputManager.GetCurrentValue(horizontalAxis) < 0) {
-                if (InputManager.IsDown(horizontalAxis) || (InputManager.IsHeld(horizontalAxis) && _nextDownTick <= Time.time)) {
+                if ((InputManager.IsDown(horizontalAxis) || InputManager.IsHeld(horizontalAxis)) && _nextDownTick <= Time.unscaledTime) {
                     if (currentSlider != null) {
                         currentSlider.value--;
                     } else {
                         nextItem = currentItem.FindSelectableOnLeft();
                     }
 
-                    _nextDownTick = Time.time + repeatDelay;
+                    _nextDownTick = Time.unscaledTime + repeatDelay;
                 }
             }
 
             if (InputManager.GetCurrentValue(horizontalAxis) > 0) {
-                if (InputManager.IsDown(horizontalAxis) || (InputManager.IsHeld(horizontalAxis) && _nextDownTick <= Time.time)) {
+                if ((InputManager.IsDown(horizontalAxis) || InputManager.IsHeld(horizontalAxis)) && _nextDownTick <= Time.unscaledTime) {
                     if (currentSlider != null) {
                         currentSlider.value++;
                     } else {
                         nextItem = currentItem.FindSelectableOnRight();
                     }
 
-                    _nextDownTick = Time.time + repeatDelay;
+                    _nextDownTick = Time.unscaledTime + repeatDelay;
                 }
             }
 
